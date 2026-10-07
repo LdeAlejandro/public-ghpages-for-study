@@ -16,11 +16,17 @@ function pathFromFilename(filename) {
     .join('/')
 }
 
-export const pages = Object.entries(modules).map(([filename, module]) => ({
-  path: `/${pathFromFilename(filename)}`,
-  component: module.default,
-  title: module.metadata?.title ?? 'Untitled',
-  category: module.metadata?.category ?? 'Other',
-  description: module.metadata?.description ?? '',
-  keywords: module.metadata?.keywords ?? [],
-}))
+export const pages = Object.entries(modules)
+  .map(([filename, module]) => ({
+    path: `/${pathFromFilename(filename)}`,
+    component: module.default,
+
+    title: module.metadata?.title ?? 'Untitled',
+    category: module.metadata?.category ?? 'Other',
+    description: module.metadata?.description ?? '',
+    keywords: module.metadata?.keywords ?? [],
+
+    // Used to order pages from newest → oldest
+    created: module.metadata?.created ?? '1970-01-01T00:00:00Z',
+  }))
+  .sort((a, b) => new Date(b.created) - new Date(a.created))
