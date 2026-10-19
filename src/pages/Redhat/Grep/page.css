@@ -1,0 +1,779 @@
+
+.grep-study-page {
+  --grep-bg: #0b1220;
+  --grep-panel: #111d30;
+  --grep-panel-light: #18283f;
+  --grep-border: #2a3d56;
+  --grep-text: #e5edf7;
+  --grep-muted: #91a5bd;
+  --grep-accent: #35d9c0;
+  --grep-blue: #60a5fa;
+  --grep-warning: #fbbf24;
+
+  width: 100%;
+  min-height: 100vh;
+  background: var(--grep-bg);
+  color: var(--grep-text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.grep-study-page *,
+.grep-study-page *::before,
+.grep-study-page *::after {
+  box-sizing: border-box;
+}
+
+.grep-study-page button,
+.grep-study-page input,
+.grep-study-page select,
+.grep-study-page textarea {
+  font: inherit;
+}
+
+.grep-content {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 28px 22px 48px;
+}
+
+.grep-page-header {
+  margin-bottom: 22px;
+}
+
+.grep-eyebrow,
+.grep-section-heading > span,
+.grep-simulator-header > div > span,
+.grep-panel-kicker,
+.grep-objective > span,
+.grep-pattern-display > span,
+.grep-inspector-explanation > span,
+.grep-flag-controls > span {
+  display: block;
+  color: var(--grep-accent);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+
+.grep-page-header h1 {
+  margin: 7px 0 5px;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 750;
+  letter-spacing: -0.8px;
+}
+
+.grep-page-header p,
+.grep-section-heading p {
+  margin: 0;
+  color: var(--grep-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.grep-simulator,
+.grep-calculator,
+.grep-cheatsheet {
+  overflow: hidden;
+  margin-bottom: 22px;
+  background: var(--grep-panel);
+  border: 1px solid var(--grep-border);
+  border-radius: 12px;
+}
+
+.grep-simulator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 20px;
+  border-bottom: 1px solid var(--grep-border);
+}
+
+.grep-simulator-header h2,
+.grep-section-heading h2 {
+  margin: 4px 0 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.grep-live-label {
+  flex-shrink: 0;
+  color: var(--grep-accent);
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.grep-scenario-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--grep-border);
+}
+
+.grep-study-page button {
+  cursor: pointer;
+  color: var(--grep-text);
+  background: #15243a;
+  border: 1px solid #344a64;
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-size: 11px;
+  font-weight: 600;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.grep-study-page button:hover {
+  background: #223954;
+  border-color: var(--grep-blue);
+}
+
+.grep-scenario-tabs button {
+  padding: 6px 10px;
+  font-size: 10px;
+}
+
+.grep-scenario-tabs button.active,
+.grep-flag-controls button.active {
+  background: rgba(53, 217, 192, 0.12);
+  color: var(--grep-accent);
+  border-color: var(--grep-accent);
+}
+
+.grep-objective {
+  padding: 16px 20px;
+}
+
+.grep-objective h3 {
+  margin: 5px 0 3px;
+  font-size: 15px;
+}
+
+.grep-objective p {
+  margin: 0;
+  color: var(--grep-muted);
+  font-size: 12px;
+}
+
+.grep-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 14px;
+  padding: 0 20px 16px;
+}
+
+.grep-file-panel,
+.grep-inspector,
+.grep-terminal,
+.grep-calculator-results {
+  min-width: 0;
+  overflow: hidden;
+  background: #0c1626;
+  border: 1px solid var(--grep-border);
+  border-radius: 8px;
+}
+
+.grep-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--grep-panel-light);
+  border-bottom: 1px solid var(--grep-border);
+}
+
+.grep-panel-heading strong {
+  display: block;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.grep-file-count {
+  flex-shrink: 0;
+  color: var(--grep-muted);
+  font-size: 9px;
+}
+
+.grep-file-lines {
+  padding: 8px 0;
+  overflow-x: auto;
+}
+
+.grep-file-line {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 62px;
+  align-items: start;
+  gap: 9px;
+  padding: 6px 12px;
+  border-left: 2px solid transparent;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.grep-file-line.active {
+  background: rgba(96, 165, 250, 0.11);
+  border-left-color: var(--grep-blue);
+}
+
+.grep-file-line.matched {
+  background: rgba(53, 217, 192, 0.08);
+  border-left-color: var(--grep-accent);
+}
+
+.grep-file-line.skipped {
+  opacity: 0.6;
+}
+
+.grep-line-number {
+  color: #60758e;
+  text-align: right;
+}
+
+.grep-line-content {
+  overflow-wrap: anywhere;
+  color: #c7d6e8;
+}
+
+.grep-line-status {
+  color: var(--grep-accent);
+  text-align: right;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.grep-highlight {
+  padding: 1px 2px;
+  color: #07121e;
+  background: var(--grep-accent);
+  border-radius: 2px;
+}
+
+.grep-pattern-display {
+  margin: 13px;
+  padding: 12px;
+  background: #101f32;
+  border: 1px solid var(--grep-border);
+  border-radius: 6px;
+}
+
+.grep-pattern-display strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--grep-blue);
+  font-family: Consolas, monospace;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.grep-inspector-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin: 0 13px 13px;
+}
+
+.grep-inspector-stats > div {
+  padding: 10px 7px;
+  text-align: center;
+  background: #14243a;
+  border: 1px solid var(--grep-border);
+  border-radius: 6px;
+}
+
+.grep-inspector-stats span,
+.grep-statistics span {
+  display: block;
+  color: var(--grep-muted);
+  font-size: 9px;
+}
+
+.grep-inspector-stats strong,
+.grep-statistics strong {
+  display: block;
+  margin-top: 3px;
+  color: var(--grep-text);
+  font-size: 18px;
+}
+
+.grep-inspector-explanation,
+.grep-inspector-tip {
+  margin: 0 13px 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #132338;
+}
+
+.grep-inspector-explanation p,
+.grep-inspector-tip p {
+  margin: 5px 0 0;
+  color: #b9c9da;
+  font-size: 11px;
+}
+
+.grep-inspector-tip {
+  border-left: 2px solid var(--grep-warning);
+}
+
+.grep-inspector-tip strong {
+  color: var(--grep-warning);
+  font-size: 10px;
+}
+
+.grep-terminal-section {
+  padding: 0 20px 15px;
+}
+
+.grep-terminal {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #080f1c;
+}
+
+.grep-terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 13px;
+  background: #1b2d45;
+  border-bottom: 1px solid var(--grep-border);
+}
+
+.grep-terminal-host {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: Consolas, monospace;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.grep-terminal-host i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--grep-accent);
+}
+
+.grep-terminal-header button {
+  padding: 3px 8px;
+  font-size: 9px;
+}
+
+.grep-terminal-body {
+  flex: 0 0 auto;
+  min-height: 92px;
+  height: auto;
+  max-height: 260px;
+  overflow: auto;
+  padding: 13px 15px;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.grep-terminal-command,
+.grep-output-line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.grep-prompt {
+  color: var(--grep-accent);
+  font-weight: 700;
+}
+
+.grep-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--grep-accent);
+  animation: grep-blink 850ms steps(1) infinite;
+}
+
+@keyframes grep-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.grep-terminal-results {
+  margin-top: 8px;
+}
+
+.grep-output-line {
+  color: #c3d8e9;
+  padding: 2px 0;
+  animation: grep-line-appear 180ms ease both;
+}
+
+@keyframes grep-line-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grep-terminal-finished {
+  margin-top: 8px;
+}
+
+.grep-terminal-footer {
+  padding: 8px 13px;
+  color: #7f97b2;
+  border-top: 1px solid var(--grep-border);
+  font-family: Consolas, monospace;
+  font-size: 9px;
+}
+
+.grep-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--grep-border);
+}
+
+.grep-controls .grep-play {
+  background: rgba(53, 217, 192, 0.12);
+  border-color: var(--grep-accent);
+  color: var(--grep-accent);
+}
+
+.grep-control-spacer {
+  flex: 1;
+}
+
+.grep-controls label {
+  color: var(--grep-muted);
+  font-size: 10px;
+}
+
+.grep-study-page select,
+.grep-study-page input,
+.grep-study-page textarea {
+  min-width: 0;
+  width: 100%;
+  padding: 9px 11px;
+  color: var(--grep-text);
+  background: #0c1728;
+  border: 1px solid #344a64;
+  border-radius: 6px;
+  outline: none;
+  font-size: 11px;
+}
+
+.grep-study-page select:focus,
+.grep-study-page input:focus,
+.grep-study-page textarea:focus {
+  border-color: var(--grep-accent);
+}
+
+.grep-controls select {
+  width: 75px;
+  padding: 7px 9px;
+}
+
+.grep-progress {
+  height: 4px;
+  background: #26384f;
+}
+
+.grep-progress > div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--grep-blue), var(--grep-accent));
+  transition: width 180ms ease;
+}
+
+.grep-statistics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 12px 20px;
+  gap: 12px;
+  text-align: center;
+}
+
+.grep-statistics strong {
+  font-size: 16px;
+}
+
+.grep-calculator,
+.grep-cheatsheet {
+  padding: 20px;
+}
+
+.grep-section-heading {
+  margin-bottom: 17px;
+}
+
+.grep-section-heading p {
+  margin-top: 5px;
+}
+
+.grep-calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.grep-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--grep-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.grep-custom-text {
+  margin-top: 12px;
+}
+
+.grep-custom-text textarea {
+  resize: vertical;
+  font-family: Consolas, monospace;
+}
+
+.grep-flag-controls {
+  margin-top: 16px;
+}
+
+.grep-flag-controls > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.grep-flag-controls button {
+  min-width: 38px;
+  font-family: Consolas, monospace;
+}
+
+.grep-command-preview {
+  margin-top: 16px;
+  padding: 12px;
+  background: #0a1423;
+  border: 1px solid var(--grep-border);
+  border-radius: 7px;
+}
+
+.grep-command-preview > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+
+.grep-command-preview > div > span {
+  color: var(--grep-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.grep-command-preview code {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--grep-accent);
+  font-family: Consolas, monospace;
+  font-size: 11px;
+}
+
+.grep-calculator-results {
+  margin-top: 14px;
+}
+
+.grep-calculator-output {
+  max-height: 240px;
+  overflow: auto;
+  padding: 12px 14px;
+  font-family: Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.grep-no-results {
+  color: var(--grep-muted);
+}
+
+.grep-invalid {
+  margin-top: 14px;
+  padding: 12px;
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.09);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+}
+
+.grep-regex-reference {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.grep-regex-reference > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px;
+  background: #15243a;
+  border: 1px solid var(--grep-border);
+  border-radius: 6px;
+}
+
+.grep-regex-reference code {
+  color: var(--grep-accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.grep-regex-reference span {
+  color: var(--grep-muted);
+  font-size: 10px;
+}
+
+.grep-important-note {
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: rgba(96, 165, 250, 0.07);
+  border-left: 2px solid var(--grep-blue);
+  border-radius: 5px;
+}
+
+.grep-important-note strong {
+  color: var(--grep-blue);
+  font-size: 11px;
+}
+
+.grep-important-note p {
+  margin: 5px 0 0;
+  color: var(--grep-muted);
+  font-size: 11px;
+}
+
+.grep-command-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.grep-command-row {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #142239;
+  border: 1px solid var(--grep-border);
+  border-radius: 6px;
+}
+
+.grep-command-row > span {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.grep-command-row code {
+  color: #9dc5f5;
+  font-family: Consolas, monospace;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.grep-command-row button {
+  padding: 5px 9px;
+  font-size: 10px;
+}
+
+.grep-footer {
+  padding: 12px 0;
+  color: #748aa5;
+  text-align: center;
+  font-size: 10px;
+}
+
+@media (max-width: 760px) {
+  .grep-content {
+    padding: 18px 12px 32px;
+  }
+
+  .grep-main-grid {
+    grid-template-columns: 1fr;
+    padding: 0 12px 12px;
+  }
+
+  .grep-simulator-header,
+  .grep-objective,
+  .grep-scenario-tabs,
+  .grep-controls {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .grep-terminal-section {
+    padding: 0 12px 12px;
+  }
+
+  .grep-calculator,
+  .grep-cheatsheet {
+    padding: 14px;
+  }
+
+  .grep-regex-reference {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grep-command-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .grep-command-row code {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .grep-calculator-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grep-controls {
+    gap: 6px;
+  }
+
+  .grep-control-spacer {
+    flex-basis: 100%;
+  }
+
+  .grep-file-line {
+    grid-template-columns: 23px minmax(0, 1fr) 50px;
+    gap: 6px;
+    font-size: 9px;
+  }
+
+  .grep-line-status {
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grep-study-page *,
+  .grep-study-page *::before,
+  .grep-study-page *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
